@@ -36,4 +36,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function friends(){
+        return $this->hasMany("App\Quest", "idSender")->where("state", "==", "friend");
+    }
+
+    public function received_fr(){
+        return $this->hasMany("App\Friendship", "idReceiver")->where("state", "==", "pending")->get();
+    }
+
+    public function sent_fr(){
+        return $this->hasMany("App\Friendship", "idSender");
+    }
+
+    public function received_q(){
+        return $this->hasMany("App\Quest", "idReceiver");
+    }
+
+    public function sent_q(){
+        return $this->hasMany("App\Quest", "idSender");
+    }
+
 }

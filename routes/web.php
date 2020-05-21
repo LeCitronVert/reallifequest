@@ -12,7 +12,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+/* home */
+Route::get('/', 'FilController@home');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/* Routes amis*/
+Route::post('/search', 'UserController@search');
+Route::get('/friends',  'UserController@frens');
+Route::get('/add/{id}', 'FriendController@add');
+Route::get('/accept/{id}', 'FriendController@accept');
+Route::get('/refuse/{id}', 'FriendController@refuse');
+
+
+Auth::routes();
+

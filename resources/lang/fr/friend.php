@@ -10,5 +10,5 @@ return [
     'search' => "rechercher quelqu'un",
     'rlist' => "Demandes d'amis",
     'flist' => "Liste d'amis",
-
+    'rankings' => "Découvrez lequel de vos amis est le numéro 1 !",
 ];

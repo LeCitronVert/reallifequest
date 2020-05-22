@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 /* home */
 Route::get('/', 'FilController@home');
+/* Route::get('/oui', 'LevelController@oui'); */
+
 
 /* Routes amis*/
 Route::post('/search', 'UserController@search');
@@ -21,6 +23,17 @@ Route::get('/friends',  'UserController@frens');
 Route::get('/add/{id}', 'FriendController@add');
 Route::get('/accept/{id}', 'FriendController@accept');
 Route::get('/refuse/{id}', 'FriendController@refuse');
+
+/* Classement */
+Route::get('/rankings',  'UserController@rankings');
+
+/* Routes quêtes */
+Route::get('/quests',  'UserController@quests');
+Route::get('/quest/create',  'QuestController@form');
+Route::post('/quest/add',  'QuestController@add');
+Route::get('/quest/accept/{id}', 'QuestController@accept');
+Route::get('/quest/refuse/{id}', 'QuestController@refuse');
+Route::get('/quest/complete/{id}', 'QuestController@complete');
 
 
 Auth::routes();

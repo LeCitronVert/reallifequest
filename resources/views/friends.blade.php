@@ -11,6 +11,8 @@
             @include("res.befriend")
         @endforeach()
 
+    <div><a href="/rankings">{{ __('friend.rankings') }}</a></div>
+
     <h1>{{ __('friend.flist') }}</h1>
         @foreach($fl as $f)
             @include("res.friend")

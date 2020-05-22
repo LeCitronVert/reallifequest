@@ -24,4 +24,16 @@ class UserController extends Controller
             })->get();
         return view('friends', ['fr' => $fr, 'fl' => $fl]);
     }
+
+    public function quests(){
+        $ql = Auth::user()->received_q;
+        foreach ($ql as $q){
+            $q->expired();
+        }
+        return view('quests', ['ql' => $ql]);
+    }
+
+    public function rankings(){
+        return view("rankings");
+    }
 }

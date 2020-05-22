@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -55,6 +56,40 @@ class User extends Authenticatable
 
     public function sent_q(){
         return $this->hasMany("App\Quest", "idSender");
+    }
+
+    public function gainxp($xp, User $user){
+        $user->xp = $user->xp + $xp;
+        $user->save();
+        $user->levelup($user);
+    }
+
+    public function levelup(User $user){
+        $levels = Level::all();
+        foreach ($levels as $level){
+            if ($user->level < $level->id && $user->xp > $level->xp && $level->id != 1){
+                $user->level = $level->id;
+                $user->save();
+
+                $fl = Friendship::where('state', 'friend')
+                    ->where(function ($query) {
+                        $query->where('idReceiver', Auth::id())
+                            ->orWhere('idSender', Auth::id());
+                    })->get();
+
+                foreach ($fl as $f){
+                    $friend = $f->returnFriend();
+                    $fil = new Fil([
+                        'idUser' => $friend->id,
+                        'type' => 'levelup',
+                        'newsUser' => $user->id,
+                        'newsValue' => $level->id,
+                    ]);
+                    $fil->save();
+                }
+
+            }
+        }
     }
 
 }

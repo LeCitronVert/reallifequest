@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Fil;
 use App\Friendship;
 use App\User;
 use Illuminate\Http\Request;
@@ -34,6 +35,21 @@ class UserController extends Controller
     }
 
     public function rankings(){
-        return view("rankings");
+        $fl = Friendship::where('state', 'friend')
+            ->where(function ($query) {
+                $query->where('idReceiver', Auth::id())
+                    ->orWhere('idSender', Auth::id());
+            })->get();
+        $fl->sortBy(function ($bulli) {
+            return ($bulli->returnFriend()->xp);
+        });
+        $fren = true;
+        $i = 1;
+        return view("rankings", ['fren' => $fren, 'fl' => $fl, 'i' => $i]);
+    }
+
+    public function profile($id){
+        $user = User::find($id);
+        return view("profile", ['user' => $user]);
     }
 }

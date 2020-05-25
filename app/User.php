@@ -58,6 +58,24 @@ class User extends Authenticatable
         return $this->hasMany("App\Quest", "idSender");
     }
 
+    public function count_completedquests(){
+        return $this->received_q()->where("state", "completed")->count();
+    }
+
+    public function count_sentquests(){
+        return $this->sent_q()->count();
+    }
+
+    public function count_friends(){
+        return Friendship::where('state', 'friend')
+            ->where(function ($query) {
+                $query->where('idReceiver', $this->id)
+                    ->orWhere('idSender', $this->id);
+            })->count();
+    }
+
+
+
     public function gainxp($xp, User $user){
         $user->xp = $user->xp + $xp;
         $user->save();

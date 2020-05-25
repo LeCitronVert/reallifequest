@@ -14,8 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 /* home */
 Route::get('/', 'FilController@home');
+
+/* Route oui */
 /* Route::get('/oui', 'LevelController@oui'); */
 
+/* Langues */
+Route::get('/lang/en',  'LangController@english');
+Route::get('/lang/fr',  'LangController@french');
 
 /* Routes amis*/
 Route::post('/search', 'UserController@search');
@@ -26,6 +31,9 @@ Route::get('/refuse/{id}', 'FriendController@refuse');
 
 /* Classement */
 Route::get('/rankings',  'UserController@rankings');
+
+/* Route profil */
+Route::get('/profile/{id}',  'UserController@profile');
 
 /* Routes quêtes */
 Route::get('/quests',  'UserController@quests');

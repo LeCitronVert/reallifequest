@@ -16,6 +16,28 @@
             {{ ucfirst(__('etc.level')) }} {{$user->level}}
         </div>
 
+        @auth()
+            @if($user->id == \Illuminate\Support\Facades\Auth::id())
+                <form action="/profile/avatar" method="post" enctype="multipart/form-data">
+                    @if($errors->any())
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+
+
+                    @csrf
+                    Changer d'avatar :<br>
+                    <input type="file" name="avatar" required>
+
+                    <input type="submit">
+                </form>
+
+            @endif()
+        @endauth()
+
     </div>
 
 @endsection

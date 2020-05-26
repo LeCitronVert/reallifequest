@@ -33,7 +33,9 @@ Route::get('/refuse/{id}', 'FriendController@refuse');
 Route::get('/rankings',  'UserController@rankings');
 
 /* Route profil */
+Route::post('/profile/avatar',  'UserController@avatar');
 Route::get('/profile/{id}',  'UserController@profile');
+
 
 /* Routes quêtes */
 Route::get('/quests',  'UserController@quests');

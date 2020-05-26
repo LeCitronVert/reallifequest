@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class Quest extends Model
 {
     public function expired(){
-        if($this->timelimit < now() && $this->state != "expired"){
+        if($this->timelimit < now() && $this->state != "expired" && $this->state != "completed"){
             $this->state = "expired";
 
             $fil = new Fil([

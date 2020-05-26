@@ -15,7 +15,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="/css/backend.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
     <script src="https://use.fontawesome.com/67284c149c.js"></script>
 </head>
 <body>

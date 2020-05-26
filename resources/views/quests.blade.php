@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="card-header">quetes</div>
+        <div class="card-header">{{ __('title.quests') }}</div>
         <a href="/quest/create">
             <button class="btn create-quest">{{ __('btn.createquest') }}</button>
         </a>

@@ -22,6 +22,7 @@ Route::get('/', 'FilController@home');
 Route::get('/lang/en',  'LangController@english');
 Route::get('/lang/fr',  'LangController@french');
 
+
 /* Routes amis*/
 Route::post('/search', 'UserController@search');
 Route::get('/friends',  'UserController@frens');

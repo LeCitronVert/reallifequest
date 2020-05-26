@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="card-header">{{ __('title.friends') }}</div>
+
     <form action="/search" method="POST">
         {{csrf_field()}}
         <input type="text" name="query" placeholder="{{ __('friend.search') }}" />

@@ -4,9 +4,9 @@ return [
 
     'accept' => 'Accepter la quête',
     'refuse' => 'Refuser la quête',
-    'all' => 'All quests',
-    'request' => 'Pending quest requests',
-    'completed' => 'Completed quests',
-    'pending' => 'Quests in progress',
-    'expired' => 'Expired quests',
+    'all' => 'Toutes les quêtes',
+    'request' => 'Quêtes en attente',
+    'completed' => 'Quêtes accomplies',
+    'pending' => 'Quêtes en cours',
+    'expired' => 'Quêtes expirées',
 ];

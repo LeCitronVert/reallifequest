@@ -7,5 +7,5 @@
     <div class="main_menu__separator"></div>
     <a href="/friends" class="main_menu__link" style="background-image: url('./img/friends_2.png')"></a>
     <div class="main_menu__separator"></div>
-    <a href="/" class="main_menu__link" style="background-image: url('./img/profile.png')"></a>
+    <a href="/profile/{{\Illuminate\Support\Facades\Auth::id()}}" class="main_menu__link" style="background-image: url('./img/profile.png')"></a>
 </nav>

@@ -3,6 +3,8 @@
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Session;
+
 
 class LangMdl {
 
@@ -20,7 +22,9 @@ class LangMdl {
      */
     public function handle($request, Closure $next)
     {
-        $this->app->setLocale(session('my_locale', config('app.locale')));
+        if (Session::has('applocale')) {
+            App::setLocale(Session::get('applocale'));
+        }
 
         return $next($request);
     }

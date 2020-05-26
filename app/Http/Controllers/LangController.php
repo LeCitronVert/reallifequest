@@ -4,16 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LangController extends Controller
 {
     public function english(){
-        session(['my_locale' => 'en']);
+
+        $user = Auth::user();
+        $user->lang = "en";
+        $user->save();
         return redirect()->back();
     }
 
     public function french(){
-        session(['my_locale' => 'fr']);
+
+        $user = Auth::user();
+        $user->lang = "fr";
+        $user->save();
+        session(['applocale' => $user->lang]);
         return redirect()->back();
     }
 }

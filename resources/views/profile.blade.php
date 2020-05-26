@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
     <!--<div class="profile">
+=======
+    <div class="card-header">{{ __('title.profile') }}</div>
+
+    <div class="profile">
+>>>>>>> 1daf77c0f85b6ccbab6252dbc06368ef87fd1d6d
         <div class="avatar">
             <img src="{{$user->avatar}}" alt="Avatar de {{$user->name}}" />
         </div>

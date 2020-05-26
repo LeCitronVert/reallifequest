@@ -16,9 +16,15 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/backend.css" rel="stylesheet">
     <script src="https://use.fontawesome.com/67284c149c.js"></script>
 </head>
 <body>
+    @auth()
+        {{App::setLocale(\Illuminate\Support\Facades\Auth::user()->lang)}}
+    @endauth()
+
+
     @include('layouts.lang')
 
     <div class="main">

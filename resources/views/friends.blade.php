@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
 
 <div class="page_header">
     <span class="big_title">friends.</span>
     <img src="/img/logo.png" alt="real_life_quest_logo">
 </div>
+=======
+    <div class="card-header">{{ __('title.friends') }}</div>
+>>>>>>> 1daf77c0f85b6ccbab6252dbc06368ef87fd1d6d
 
     <form action="/search" method="POST">
         {{csrf_field()}}

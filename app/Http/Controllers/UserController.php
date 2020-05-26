@@ -31,7 +31,13 @@ class UserController extends Controller
         foreach ($ql as $q){
             $q->expired();
         }
-        return view('quests', ['ql' => $ql]);
+        $ql = $ql->sortByDesc("id");
+        $qr = $ql->where("state", "pending");
+        $qc = $ql->where("state", "completed");
+        $qp = $ql->where("state", "accepted");
+        $qe = $ql->where("state", "expired");
+
+        return view('quests', ['ql' => $ql,'qr' => $qr,'qc' => $qc,'qp' => $qp,'qe' => $qe]);
     }
 
     public function rankings(){
@@ -51,5 +57,17 @@ class UserController extends Controller
     public function profile($id){
         $user = User::find($id);
         return view("profile", ['user' => $user]);
+    }
+
+    public function avatar(Request $request){
+        $extension = $request->file("avatar")->getClientOriginalExtension();
+        $request->file("avatar")->move("avatars/", Auth::id() . "." . $extension);
+        $user = Auth::user();
+        $user->avatar = ("/avatars/" . Auth::id() . "." . $extension);
+
+        $user->save();
+
+
+        return redirect("/profile/" . Auth::id());
     }
 }

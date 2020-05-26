@@ -26,5 +26,6 @@
     </div>
 
     @include('layouts.navbar')
+    <script src="/js/quests.js"></script>
 </body>
 </html>

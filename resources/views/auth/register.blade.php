@@ -81,13 +81,13 @@
 
         <span class="big_title">{{ __('register.') }}</span>
 
-        <input id="name" type="text" name="name" value="{{ old('name') }}" required autocomplete="name" class="round_input" placeholder="Username" style="background-image: url('./img/avatar_2.png')">
+        <input id="name" type="text" name="name" value="{{ old('name') }}" required autocomplete="name" class="round_input" placeholder="Username" style="background-image: url('/img/avatar_2.png')">
 
-        <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" class="round_input" placeholder="Email address" style="background-image: url('./img/mail_2.png')">
+        <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" class="round_input" placeholder="Email address" style="background-image: url('/img/mail_2.png')">
         
-        <input id="password" type="password" name="password" required autocomplete="new-password" class="round_input" placeholder="Password" style="background-image: url('./img/locker_2.png')">
+        <input id="password" type="password" name="password" required autocomplete="new-password" class="round_input" placeholder="Password" style="background-image: url('/img/locker_2.png')">
         
-        <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password" class="round_input" placeholder="Confirm password" style="background-image: url('./img/locker_2.png')">
+        <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password" class="round_input" placeholder="Confirm password" style="background-image: url('/img/locker_2.png')">
 
         <div class="form_page__form__actions">
             <button type="submit" class="button_full">{{ __('Register') }}</button>

@@ -3,7 +3,7 @@
     <div class="main_menu__separator"></div>
     <a href="/quests" class="main_menu__link" style="background-image: url('/img/scroll.png')"></a>
     <div class="main_menu__separator"></div>
-    <a href="/" class="main_menu__link" style="background-image: url('/img/send.png')"></a>
+    <a href="/quest/create" class="main_menu__link" style="background-image: url('/img/send.png')"></a>
     <div class="main_menu__separator"></div>
     <a href="/friends" class="main_menu__link" style="background-image: url('/img/friends_2.png')"></a>
     <div class="main_menu__separator"></div>

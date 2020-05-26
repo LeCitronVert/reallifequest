@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="page_header">
+    <span class="big_title">friends.</span>
+    <img src="/img/logo.png" alt="real_life_quest_logo">
+</div>
+
     <form action="/search" method="POST">
         {{csrf_field()}}
         <input type="text" name="query" placeholder="{{ __('friend.search') }}" />

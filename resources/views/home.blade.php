@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="page_header">
+    <span class="big_title">home.</span>
+    <img src="/img/logo.png" alt="real_life_quest_logo">
+</div>
+
 <div class="container">
     <div class="card-header">maison</div>
 

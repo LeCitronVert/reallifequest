@@ -3,12 +3,11 @@
 @section('content')
 
 <div class="page_header">
-    <span class="big_title">home.</span>
+    <span class="big_title">{{ __('title.home') }}.</span>
     <img src="/img/logo.png" alt="real_life_quest_logo">
 </div>
 
 <div class="container">
-    <div class="card-header">{{ __('title.home') }}</div>
 
     <pre>
         {{var_dump(session()->all())}}

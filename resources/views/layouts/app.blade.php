@@ -15,6 +15,7 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="/css/backend.css" rel="stylesheet">
         <link href="/css/main.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
     </head>
@@ -32,6 +33,7 @@
         </div>
 
         @include('layouts.navbar')
+        
         <script src="/js/quests.js"></script>
         <script src="/js/select.js"></script>
     </body>

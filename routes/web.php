@@ -12,39 +12,47 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/* home */
-Route::get('/', 'FilController@home');
 
-/* Route oui */
-/* Route::get('/oui', 'LevelController@oui'); */
+/* Demander le login */
+Route::group(['middleware' => ['auth']], function()
+{
+    /* home */
+    Route::get('/', 'FilController@home');
 
-/* Langues */
-Route::get('/lang/en',  'LangController@english');
-Route::get('/lang/fr',  'LangController@french');
+    /* Route oui */
+    /* Route::get('/oui', 'LevelController@oui'); */
 
-
-/* Routes amis*/
-Route::post('/search', 'UserController@search');
-Route::get('/friends',  'UserController@frens');
-Route::get('/add/{id}', 'FriendController@add');
-Route::get('/accept/{id}', 'FriendController@accept');
-Route::get('/refuse/{id}', 'FriendController@refuse');
-
-/* Classement */
-Route::get('/rankings',  'UserController@rankings');
-
-/* Route profil */
-Route::post('/profile/avatar',  'UserController@avatar');
-Route::get('/profile/{id}',  'UserController@profile');
+    /* Langues */
+    Route::get('/lang/en',  'LangController@english');
+    Route::get('/lang/fr',  'LangController@french');
 
 
-/* Routes quêtes */
-Route::get('/quests',  'UserController@quests');
-Route::get('/quest/create',  'QuestController@form');
-Route::post('/quest/add',  'QuestController@add');
-Route::get('/quest/accept/{id}', 'QuestController@accept');
-Route::get('/quest/refuse/{id}', 'QuestController@refuse');
-Route::get('/quest/complete/{id}', 'QuestController@complete');
+    /* Routes amis*/
+    Route::post('/search', 'UserController@search');
+    Route::get('/friends',  'UserController@frens');
+    Route::get('/add/{id}', 'FriendController@add');
+    Route::get('/accept/{id}', 'FriendController@accept');
+    Route::get('/refuse/{id}', 'FriendController@refuse');
+
+    /* Classement */
+    Route::get('/rankings',  'UserController@rankings');
+
+    /* Route profil */
+    Route::post('/profile/avatar',  'UserController@avatar');
+    Route::get('/profile/{id}',  'UserController@profile');
+
+
+    /* Routes quêtes */
+    Route::get('/quests',  'UserController@quests');
+    Route::get('/quest/create',  'QuestController@form');
+    Route::post('/quest/add',  'QuestController@add');
+    Route::get('/quest/accept/{id}', 'QuestController@accept');
+    Route::get('/quest/refuse/{id}', 'QuestController@refuse');
+    Route::get('/quest/complete/{id}', 'QuestController@complete');
+});
+
+
+
 
 
 Auth::routes();

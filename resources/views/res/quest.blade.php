@@ -24,7 +24,7 @@
             @if($q->state == "pending")
                 <div class="quest__footer__choices">
                     <a href="/quest/accept/{{$q->id}}"><img src="/img/accept.png" alt="accept"></a>
-                    <a href="/quest/refuse/{{$q->id}}"><img src="/img/deny.png" alt="deny"></i></a>
+                    <a href="/quest/refuse/{{$q->id}}"><img src="/img/deny.png" alt="deny"></a>
                 </div>
             @endif()
             @if($q->state == "accepted")

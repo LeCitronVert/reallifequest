@@ -14,8 +14,10 @@
             <div class="homepage_header__progress_bar__background"></div>
         </div>
         <div class="homepage_header__banner">
-            <span>Voir mon profil</span>
-            <span class="profile__banner__level">►</span>
+            <a href="/profile/{{\Illuminate\Support\Facades\Auth::id()}}">
+                <span>Voir mon profil</span>
+                <span class="profile__banner__level">►</span>
+            </a>
         </div>
     </div>
     @foreach($actu as $a)
@@ -36,9 +38,4 @@
     @endforeach
 </div>
 
-<form method="POST" action="{{ route('logout') }}">
-    @csrf
-
-    <button type="submit" class="button_full">{{ __('Logout') }}</button>
-<form>
 @endsection

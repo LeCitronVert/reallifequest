@@ -1,4 +1,4 @@
-<div class="friend_card friend">
+<!--<div class="friend_card friend">
     <div>
         @if(isset($fren))
                 @if($loop->iteration == 1)
@@ -16,4 +16,13 @@
     <a href="/profile/{{$f->id}}"><img src="{{$f->returnFriend()->avatar}}" alt="Avatar de {{$f->returnFriend()->name}}" /></a>
     <a href="/profile/{{$f->id}}"><span class="friend_name">{{$f->returnFriend()->name}}</span></a>
     <span class="friend_name">{{$f->returnFriend()->level}}</span>
+</div>-->
+
+
+<div class="friend">
+    <a href="/profile/{{$f->id}}">
+        <div class="friend__picture" style="background-image: url('{{$f->returnFriend()->avatar}}')"></div>
+        <span class="friend__name">{{$f->returnFriend()->name}}</span>
+        <span class="friend__level">Level {{$f->returnFriend()->level}}</span>
+    </a>
 </div>

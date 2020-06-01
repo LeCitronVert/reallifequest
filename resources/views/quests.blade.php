@@ -8,17 +8,15 @@
 </div>
 
     <div class="container">
-        <a href="/quest/create">
-            <button class="btn create-quest">{{ __('btn.createquest') }}</button>
-        </a>
 
         <div id="quests_select" onchange="filterquest()" class="custom-select">
             <select>
-            <option value="all">{{ __('quest.all') }}</option>
-            <option value="request">{{ __('quest.request') }}</option>
-            <option value="completed">{{ __('quest.completed') }}</option>
-            <option value="pending">{{ __('quest.pending') }}</option>
-            <option value="expired">{{ __('quest.expired') }}</option>
+                <option value="all">{{ __('quest.all') }}</option>
+                <option value="all">{{ __('quest.all') }}</option>
+                <option value="request">{{ __('quest.request') }}</option>
+                <option value="completed">{{ __('quest.completed') }}</option>
+                <option value="pending">{{ __('quest.pending') }}</option>
+                <option value="expired">{{ __('quest.expired') }}</option>
             </select>
         </div>
 

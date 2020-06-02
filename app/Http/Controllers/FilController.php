@@ -13,7 +13,7 @@ class FilController extends Controller
         foreach ($ql as $q){
             $q->expired();
         }
-        $actu = Fil::where("idUser", Auth::id())->get();
+        $actu = Fil::where("idUser", Auth::id())->orderBy('id', 'DESC')->get();
 
         return view("home", ['actu' => $actu]);
     }

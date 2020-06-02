@@ -7,20 +7,25 @@
         <img src="/img/logo.png" alt="real_life_quest_logo">
     </div>
 
-    <form action="/search" method="POST">
+    <form action="/search" method="POST" class="searchbar">
         {{csrf_field()}}
-        <input type="text" name="query" placeholder="{{ __('friend.search') }}" />
+        <input type="text" name="query" placeholder="{{ __('friend.search') }}" class="round_input" />
     </form>
 
-    <h1>{{ __('friend.rlist') }}</h1>
-        @foreach($fr as $f)
-            @include("res.befriend")
-        @endforeach()
+    <p class="center_title">{{ __('friend.rlist') }}</p>
+        <div class="friends">
+            @foreach($fr as $f)
+                @include("res.befriend")
+            @endforeach()
+        </div>
 
-    <div><a href="/rankings">{{ __('friend.rankings') }}</a></div>
+    <p class="center_title">{{ __('friend.flist') }}</p>
+        <div class="friends">
+            @foreach($fl as $f)
+                @include("res.friend")
+            @endforeach()
+        </div>
 
-    <h1>{{ __('friend.flist') }}</h1>
-        @foreach($fl as $f)
-            @include("res.friend")
-        @endforeach()
+    <a href="/rankings" class="ranking_link" style="background-image: url('/img/first.png')"></a>
+    
 @endsection

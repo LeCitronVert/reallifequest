@@ -60,4 +60,10 @@
     </div>
 </div>
 
+<form method="POST" action="{{ route('logout') }}">
+    @csrf
+
+    <button type="submit" class="button_full logout">{{ __('Logout') }}</button>
+<form>
+
 @endsection

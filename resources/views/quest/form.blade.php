@@ -8,7 +8,7 @@
             {{csrf_field()}}
             <input type="text" name="prompt" placeholder="{{ __('form.prompt') }}" />
             <input type="text" name="desc" placeholder="{{ __('form.desc') }}" />
-            {{ __('form.difficulty') }} : <select name="difficulty">
+            {{ __('form.difficulty') }} : <select name="difficulty" class="custom-select">
                 <option value="easy">{{ __('form.easy') }}</option>
                 <option value="medium">{{ __('form.medium') }}</option>
                 <option value="hard">{{ __('form.hard') }}</option>

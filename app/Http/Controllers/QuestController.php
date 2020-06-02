@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Fil;
 use App\Friendship;
+use App\History;
 use App\Quest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -96,6 +97,13 @@ class QuestController extends Controller
         ]);
         $fil->save();
         $q->save();
+
+        $history = new History([
+            'idUser' => Auth::id(),
+            'type' => 'questcompleted',
+            'newsValue' => $q->id,
+        ]);
+        $history->save();
 
         Auth::user()->gainxp($q->xp, Auth::user());
         return redirect("/quests");

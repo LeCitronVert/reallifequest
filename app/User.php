@@ -106,6 +106,13 @@ class User extends Authenticatable
                     $fil->save();
                 }
 
+                $fil = new History([
+                    'idUser' => $user->id,
+                    'type' => 'levelup',
+                    'newsValue' => $level->id,
+                ]);
+                $fil->save();
+
             }
         }
     }

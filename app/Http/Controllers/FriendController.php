@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Fil;
 use App\Friendship;
+use App\History;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,6 +31,18 @@ class FriendController extends Controller
         $fil->newsUser = $keur->idReceiver;
         $fil->newsValue = 0;
         $fil->save();
+
+        $history = new History();
+        $history->idUser = $keur->idSender;
+        $history->type = "newfriend";
+        $history->newsValue = $keur->idReceiver;
+        $history->save();
+
+        $history = new History();
+        $history->idUser = $keur->idReceiver;
+        $history->type = "newfriend";
+        $history->newsValue = $keur->idSender;
+        $history->save();
 
         return redirect("/friends");
     }

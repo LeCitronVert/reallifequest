@@ -60,6 +60,31 @@
     </div>
 </div>
 
+    @foreach($history as $a)
+        <div class="notification">
+            @if($a->type == "newfriend")
+                <div class="notification__image" style="background-image: url('{{\App\User::find($a->newsValue)->avatar}}')" alt="Avatar de {{\App\User::find($a->newsValue)->name}}"></div>
+            @else()
+                <div class="notification__image" style="background-image: url('{{\App\User::find($a->idUser)->avatar}}')" alt="Avatar de {{\App\User::find($a->idUser)->name}}"></div>
+            @endif()
+            <div class="notification__content">
+                @if($a->type == "newfriend")
+                    <span class="notification__content__name">{{\App\User::find($a->newsValue)->name}}</span>
+                @else()
+                    <span class="notification__content__name">{{\App\User::find($a->idUser)->name}}</span>
+                @endif()
+                <p class="notification__content__description">{{ __('fil.' . $a->type) }}
+                    @if($a->type == "questaccepted" || $a->type == "questrefused" || $a->type == "questtimeout"|| $a->type == "questcompleted")
+                        <strong>{{\App\Quest::find($a->newsValue)->prompt}}</strong>
+                    @endif
+                    @if($a->type == "levelup")
+                        <strong>{{$a->newsValue}}</strong>
+                    @endif</p>
+                <span class="notification__content__date">{{$a->created_at}}</span>
+            </div>
+        </div>
+    @endforeach
+
 <form method="POST" action="{{ route('logout') }}">
     @csrf
 

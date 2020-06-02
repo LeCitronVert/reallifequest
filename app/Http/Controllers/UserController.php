@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Fil;
 use App\Friendship;
+use App\History;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,7 +57,8 @@ class UserController extends Controller
 
     public function profile($id){
         $user = User::find($id);
-        return view("profile", ['user' => $user]);
+        $history = History::where("idUser", $id)->orderBy('id', 'DESC')->get();
+        return view("profile", ['user' => $user, 'history' => $history]);
     }
 
     public function avatar(Request $request){
